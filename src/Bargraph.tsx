@@ -1,6 +1,6 @@
 import React from 'react'
 import Table from './Table'
-import { type OrderType } from './types/OrderType'
+import type { OrderType } from './types/OrderType'
 import './Bargraph.css'
 
 interface BarGraphProps {

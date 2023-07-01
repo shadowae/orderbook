@@ -1,5 +1,5 @@
 import React, { type JSX } from 'react'
-import { type OrderType } from './types/OrderType'
+import type { OrderType } from './types/OrderType'
 interface PropType {
   graphType: string
   orderBookData: OrderType[]
