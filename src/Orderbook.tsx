@@ -1,14 +1,20 @@
 import getData from './GetData'
 import React, { useEffect, useState, type JSX } from 'react'
 import BarGraph from './Bargraph'
+import { type OrderType } from './types/OrderType'
 
 interface PropType {
   dataURL: string
 }
+
+interface OrdersState {
+  asks: OrderType[]
+  bids: OrderType[]
+}
 const Orderbook = (props: PropType): JSX.Element => {
   const { dataURL } = props
   const [updatedTS, setUpdatedTS] = useState('')
-  const [orders, setOrders] = useState({ asks: [], bids: [] })
+  const [orders, setOrders] = useState<OrdersState>({ asks: [], bids: [] })
 
   useEffect(() => {
     // Function to fetch data from API and update state
