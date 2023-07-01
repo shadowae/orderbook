@@ -1,5 +1,5 @@
-const getData = () => {
-    return fetch('https://dex-mainnet-webserver-ecs.zeta.markets/orderbooks/SOL?marketIndexes%5B%5D=137')
+const getData = (url: string) => {
+    return fetch(url)
         .then(result => result.json())
         .then(result => result.orderbooks[0])
 }

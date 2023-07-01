@@ -2,7 +2,11 @@ import getData from "./GetData";
 import {useEffect, useState} from "react";
 import BarGraph from "./Bargraph";
 
-const Orderbook = () => {
+interface PropType {
+    dataURL: string;
+}
+const Orderbook = (props: PropType) => {
+    const {dataURL} = props;
     const [updatedTS, setUpdatedTS] = useState('')
     const [orders, setOrders] = useState({asks: [], bids: []})
 
@@ -13,7 +17,7 @@ const Orderbook = () => {
             const currentDatestamp = new Date().toLocaleDateString();
             setUpdatedTS(`${currentDatestamp} ${currentTimestamp}`);
 
-            const result = await getData();
+            const result = await getData(dataURL);
             setOrders(result);
         };
 
@@ -25,7 +29,7 @@ const Orderbook = () => {
 
         // Clean up the interval when component unmounts
         return () => clearInterval(interval);
-    }, []);
+    }, [dataURL]);
 
     return (
         <div>
