@@ -5,7 +5,7 @@ function App (): JSX.Element {
   return (
     <div className="App">
         <h1>Orderbook Demo</h1>
-      <Orderbook dataURL={'https://de2x-mainnet-webserver-ecs.zeta.markets/orderbooks/SOL?marketIndexes%5B%5D=137'}/>
+      <Orderbook dataURL={'https://dex-mainnet-webserver-ecs.zeta.markets/orderbooks/SOL?marketIndexes%5B%5D=137'}/>
     </div>
   )
 }
