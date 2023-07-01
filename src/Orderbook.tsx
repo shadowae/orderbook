@@ -23,13 +23,20 @@ const Orderbook = (props: PropType): JSX.Element => {
       const currentDatestamp = new Date().toLocaleDateString()
       setUpdatedTS(`${currentDatestamp} ${currentTimestamp}`)
 
-      const result = await getData(dataURL)
-      setOrders(result)
+      try {
+        const result = await getData(dataURL)
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        if (result) {
+          setOrders(result)
+        }
+      } catch (error) {
+        // Handle the error
+        console.error('Error:', error)
+      }
     }
 
     // Fetch data initially
-    fetchData()
-      .catch(e => { console.log('Error is found', e) })
+    void fetchData()
 
     // Fetch data every 5 seconds
     // eslint-disable-next-line @typescript-eslint/no-misused-promises

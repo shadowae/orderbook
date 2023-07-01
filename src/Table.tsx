@@ -82,6 +82,7 @@ const Table = (props: PropType): JSX.Element => {
                 </tr>
                 </thead>
                 <tbody>
+                {orderBookData.length < 1 && <h3>No data available</h3>}
                 {orderBookData.map((level, index) => getTableRow(graphType, level, index, totalSize))}
                 </tbody>
             </table>
